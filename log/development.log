@@ -6361,3 +6361,26 @@ Processing by BooksController#index as HTML
   [1m[36mCategory Load (0.8ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?[0m  [["book_id", 15]]
   Rendered books/index.html.erb within layouts/application (40.0ms)
 Completed 200 OK in 1284ms (Views: 1269.7ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-29 23:45:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BooksController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mBook Load (1.0ms)[0m  [1mSELECT "books".* FROM "books" WHERE ((draft='f' OR user_id=2) AND DATE(created_at) >= '2017-06-22')[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?  [["book_id", 9]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?[0m  [["book_id", 12]]
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?  [["book_id", 15]]
+  Rendered books/index.html.erb within layouts/application (1193.0ms)
+Completed 200 OK in 4953ms (Views: 4698.2ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-29 23:46:00 +0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (6.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mBook Load (3.4ms)[0m  SELECT "books".* FROM "books" WHERE ((draft='f' OR user_id=2) AND DATE(created_at) >= '2017-06-22')
+  [1m[36mCategory Load (2.4ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?[0m  [["book_id", 9]]
+  [1m[35mCategory Load (5.7ms)[0m  SELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?  [["book_id", 12]]
+  [1m[36mCategory Load (4.8ms)[0m  [1mSELECT "categories".* FROM "categories" INNER JOIN "books_categories" ON "categories"."id" = "books_categories"."category_id" WHERE "books_categories"."book_id" = ?[0m  [["book_id", 15]]
+  Rendered books/index.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 1792ms (Views: 1757.5ms | ActiveRecord: 22.7ms)
